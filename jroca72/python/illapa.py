@@ -28,7 +28,7 @@ def run_query(query):
 # configuro comunicacion serial con arduino 
 arduino = serial.Serial("COM4", 9600)
 # recupero la temperatura del sensor 1 
-response = requests.get("http://192.168.1.135/Python")
+response = requests.get("http://192.168.0.212/Python")  #ip fija del esp8266
 fvalor = float(response.text)      #convierto el valor de la temperatura a float otra vez
 
 # recupero la temperatura de corte del sensor 1 de la base de datos

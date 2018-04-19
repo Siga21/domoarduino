@@ -3,6 +3,9 @@
 
 ESP8266WebServer server(80);
 const int sensorPin= A0;  //pin de sensor de temperatura LM35 
+IPAddress ip(192,168,0,212);
+IPAddress gateway(192,168,0,1);
+IPAddress subnet(255,255,255,0);
 
 void handlePath() 
 {
@@ -16,6 +19,7 @@ void handlePath()
 void setup()
 {
     Serial.begin(115200);
+    WiFi.config(ip,gateway,subnet); // ponemos ip fija 
     WiFi.begin("senfios", "password"); 
 
     while (WiFi.status() != WL_CONNECTED) 
